@@ -5,6 +5,7 @@ import java.util.ArrayList;
 
 
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -23,8 +24,6 @@ public class ProdutoController {
 	@GetMapping("/batatas")
 	@ResponseBody
 	public ArrayList<Pedido> buscarTodasBatatas() {
-		
-		
 		return comidas;
 	}
 	
@@ -34,6 +33,11 @@ public class ProdutoController {
 		return p1.buscarUmaBatata(id);
 	}
 	
+	@DeleteMapping("/batatas/{id}")
+	@ResponseBody
+	public void excluirBatata(@PathVariable int id) {
+		p1.excluirBatata(id);
+	}
 	
 	
 	

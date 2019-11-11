@@ -70,6 +70,17 @@ public class ProdutoDAO {
 		return pedidos;
 		
 	}
+	public boolean excluirBatata(int id) {
+		for (Item itens : itens) {
+			if(itens.getId()== id) {
+					pedido.getItem().remove(itens);
+					return true;
+			}
+		
+		}
+	return false;
+	}
+	
 	
  public ArrayList<Pedido> retornarPedido(){
 	 return pedidos;
