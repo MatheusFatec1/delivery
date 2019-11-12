@@ -2,7 +2,6 @@ package model;
 
 import java.util.Date;
 
-
 public class Item {
 	private int id;
 	private String nome;
@@ -16,7 +15,6 @@ public class Item {
 	public Item() {
 		super();
 	}
-
 
 	public Item(int id, String nome, double preco, String descricao, String observacao, Tipo tipo, Tamanho tamanho) {
 		super();

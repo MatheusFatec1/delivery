@@ -35,6 +35,14 @@ public class Pedido{
 		this.status = status;
 		this.item = item;
 	}
+	
+	public double calcularPreco() {
+		double precoT=0;
+		 for(Item i: item) {
+			preco += i.getPreco();
+		}
+		 return precoT;
+	}
 
 	public int getId() {
 		return id;
@@ -115,6 +123,7 @@ public class Pedido{
 	public void setItem(ArrayList<Item> item) {
 		this.item = item;
 	}
+	
 	
 	
 	

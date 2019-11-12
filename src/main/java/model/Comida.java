@@ -34,7 +34,4 @@ public class Comida extends Item {
 		this.adicionais = adicionais;
 	}
 	
-	
-	
-	
 }

@@ -19,7 +19,7 @@ public class ItemDAO {
 		
 			}
 
-	public ArrayList<Pedido> criarPedido() {
+	public Pedido criarPedido() {
 		// TODO Auto-generated method stub
 		Comida batata1 = new Comida();
 		Comida batata2 = new Comida();
@@ -94,10 +94,11 @@ public class ItemDAO {
 		itens.add(umlitro);
 
 		pedido.setItem(itens);
+		pedido.calcularPreco();
 		pedidos.add(pedido);
 
-		return pedidos;
-
+		return pedido;
+	
 	}
 	
 	public void inserirItem(Item novo) {
@@ -148,8 +149,8 @@ public class ItemDAO {
 	public ArrayList<Item> retornarItem() {
 		return itens;
 	}
-	public ArrayList<Pedido> retornarPedido() {
-		return pedidos;
+	public Pedido retornarPedido() {
+		return pedido;
 	}
 
 	public Item buscarItemUnitario(int id) {

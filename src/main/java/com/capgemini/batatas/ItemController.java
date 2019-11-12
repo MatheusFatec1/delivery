@@ -24,7 +24,7 @@ import model.Pedido;
 @RequestMapping("/itens")
 public class ItemController {
 	ItemDAO p1 = new ItemDAO();
-	ArrayList<Pedido> pedidos = p1.criarPedido();
+	Pedido pedido = p1.criarPedido();
 	ArrayList<Item> itens = p1.retornarItem();
 	
 	
@@ -39,8 +39,6 @@ public class ItemController {
 	public boolean atualizarItem(@RequestBody Item novo, @PathVariable int id) {
 		return p1.atualizarItem(novo,id);
 	}
-	
-	
 	
 	@GetMapping("/tipo/{tipo}")
 	@ResponseBody
@@ -60,8 +58,17 @@ public class ItemController {
 	public void excluirItem(@PathVariable int id) {
 		p1.excluirItem(id);
 	}
+	@GetMapping("/buscar/{id}")
+	@ResponseBody
+	public Item buscarItemUnitario(@PathVariable int id) {
+		return p1.buscarItemUnitario(id);
+	}
 	
-	
+	@GetMapping("/pedido")
+	@ResponseBody
+	public Pedido  buscarPedido() {
+		return p1.retornarPedido();
+	}
 	
 /*	
 	@GetMapping("/batatas/{id}")
@@ -69,10 +76,6 @@ public class ItemController {
 	public Item buscarUmaBatata(@PathVariable int id) {
 		return p1.buscarUmaBatata(id);
 	}
-	*/
-	@GetMapping("/buscar/{id}")
-	@ResponseBody
-	public Item buscarItemUnitario(@PathVariable int id) {
-		return p1.buscarItemUnitario(id);
-	}
+*/
+	
 }
