@@ -10,7 +10,7 @@ import model.Tamanho;
 import model.Tipo;
 
 public class ItemDAO {
-
+	int cont = 7 ;
 	ArrayList<Pedido> pedidos = new ArrayList<Pedido>();
 	ArrayList<Item> itens = new ArrayList<Item>();
 	Pedido pedido = new Pedido();
@@ -52,7 +52,7 @@ public class ItemDAO {
 		batata3.setObservacao("molho de creme");
 		batata3.setTamanho(Tamanho.GRANDE);
 
-		coca600.setId(1001);
+		coca600.setId(0004);
 		coca600.setNome("Coca-cola 600ml");
 		coca600.setPreco(6.00);
 		coca600.setDescricao("Coca-cola 600ml");
@@ -60,7 +60,7 @@ public class ItemDAO {
 		coca600.setTipo(Tipo.REFRI);
 		coca600.setTamanho(Tamanho.SEISCENTOS);
 
-		coca350.setId(1002);
+		coca350.setId(0005);
 		coca350.setNome("Coca-cola 350ml");
 		coca350.setPreco(6.00);
 		coca350.setDescricao("Coca-cola 350ml");
@@ -68,7 +68,7 @@ public class ItemDAO {
 		coca350.setTipo(Tipo.REFRI);
 		coca350.setTamanho(Tamanho.LATA350ML);
 
-		coca250.setId(1003);
+		coca250.setId(0006);
 		coca250.setNome("Coca-cola 250ml");
 		coca250.setPreco(6.00);
 		coca250.setDescricao("Coca-cola 250ml");
@@ -77,7 +77,7 @@ public class ItemDAO {
 		coca250.setTamanho(Tamanho.LATINHA250ML);
 
 		
-		umlitro.setId(1004);
+		umlitro.setId(0007);
 		umlitro.setNome("Coca-cola 1L");
 		umlitro.setPreco(6.00);
 		umlitro.setDescricao("Coca-cola 1L");
@@ -102,8 +102,8 @@ public class ItemDAO {
 	}
 	
 	public void inserirItem(Item novo) {
-	int x=itens.size()+1;
-		novo.setId(x);
+		
+		novo.setId(gerarId());
 		itens.add(novo);
 	}
 	
@@ -152,7 +152,11 @@ public class ItemDAO {
 	public Pedido retornarPedido() {
 		return pedido;
 	}
-
+	
+	public int gerarId() {
+		cont++;
+		return cont;
+	}
 	public Item buscarItemUnitario(int id) {
 	
 		for (Item item: itens) {
